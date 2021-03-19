@@ -7,6 +7,8 @@ namespace mis321_groupproject
         static void Main(string[] args)
         {
             Console.WriteLine("Testing 1, 2, 3");
+
+            Console.WriteLine("test");
         }
     }
 }
