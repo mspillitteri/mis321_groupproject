@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kcCI5qLutDvVgwV0+xOlMMZLNVqMDPvvVHYSWFuEIxABsYTDrl2uios/yfNkVsbIuRyHNLmEnS7xGLFkJZJjug==",
+  "dgSpecHash": "s4cYC5dIV77qsF37CZa2yorYKlUB56xXHupx78gbQ/O6Xnp+QGLFhMIR0rB4Z5pf+ge1DEwhqHnqxhchTLcEIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msp99\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\msp99\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
