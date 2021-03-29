@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj": {}
+    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj": {
+    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
+        "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
         "packagesPath": "C:\\Users\\msp99\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\obj\\",
+        "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\msp99\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "mysql": {
+              "target": "Package",
+              "version": "[5.5.14.1, )"
+            },
+            "mysql.data": {
+              "target": "Package",
+              "version": "[*, )"
             }
           },
           "imports": [
