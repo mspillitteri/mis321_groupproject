@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\mis321_groupproject.csproj": {}
+    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\mis321_groupproject.csproj": {
+    "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\mis321_groupproject.csproj",
-        "projectName": "mis321_groupproject",
-        "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\mis321_groupproject.csproj",
+        "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\api.csproj",
+        "projectName": "api",
+        "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\api.csproj",
         "packagesPath": "C:\\Users\\msp99\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\obj\\",
+        "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\msp99\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -48,6 +58,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
