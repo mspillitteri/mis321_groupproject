@@ -11,7 +11,7 @@ namespace API.Database
             string userName = "wvu2plbuaietvqt8";
             string password = "c16vbyuutxke9npf";
 
-            cs = $@"server={server};user={userName};databse={database};port={port};password={password};";
+            cs = $@"server={server};user={userName};database={database};port={port};password={password};";
         }
     }
 }

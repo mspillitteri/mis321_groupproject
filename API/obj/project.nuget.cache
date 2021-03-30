@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zSRMdUIxoyBPOLZRyQ1b+UwTSNGeA3NO8Vzf97/cqI7RhX10kslhCCZF8MtLz7ej0c0GeLCSumyMRVb/E9UBzQ==",
+  "dgSpecHash": "5jhkYIDI+fQujofeFv8Ee92m+az3JMl4Iz600UCJNBGQiwHGzf56JVgggKiB/SeOxG3eWo2lfZA+Mbiz+tYOyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msp99\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\msp99\\.nuget\\packages\\chocolatey\\0.9.8.3\\chocolatey.0.9.8.3.nupkg.sha512",

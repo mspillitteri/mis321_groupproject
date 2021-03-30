@@ -7196,7 +7196,7 @@
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "mysql >= 5.5.14.1",
-      "mysql.data >= *"
+      "mysql.data >= 8.0.23"
     ]
   },
   "packageFolders": {
@@ -7205,11 +7205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\API.csproj",
+      "projectPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\API.csproj",
       "packagesPath": "C:\\Users\\msp99\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\api\\obj\\",
+      "outputPath": "C:\\Users\\msp99\\OneDrive\\Desktop\\source\\repos\\Group Project\\mis321_groupproject\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\msp99\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7250,7 +7250,7 @@
           },
           "mysql.data": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[8.0.23, )"
           }
         },
         "imports": [
