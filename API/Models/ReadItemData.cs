@@ -22,28 +22,32 @@ namespace API.Models
                 Item i = new Item(){
                     itemid = reader.GetInt32(0),
                     itemname = reader.GetString(1),
-                    ischeckedout = reader.GetBoolean(2)
+                    itemstatus = reader.GetString(2),
+                    ischeckedout = reader.GetBoolean(3)
                     };
                 items.Add(i);
             }
             return items;
         }
-        // **NEEDS FIXING**
         public Item GetAnItem(int itemid) {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT * FROM items WHERE itemid = @itemid";
+            string stm = @"SELECT * FROM items WHERE itemid = @itemid";
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@itemid",itemid);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
             
             rdr.Read();
-            Item item = new Item(){itemid = rdr.GetInt32(0), itemname = rdr.GetString(1), ischeckedout = rdr.GetBoolean(2)};
-            rdr.Close();
+            Item item = new Item(){
+                itemid = rdr.GetInt32(0),
+                itemname = rdr.GetString(1),
+                itemstatus = rdr.GetString(2),
+                ischeckedout = rdr.GetBoolean(3)
+            };
             return item;
         }
     }

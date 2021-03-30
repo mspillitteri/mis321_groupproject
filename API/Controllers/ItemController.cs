@@ -26,11 +26,11 @@ namespace api.Controllers
         // GET: api/Item/5
         [EnableCors("Policy")]
         [HttpGet("{id}", Name = "Get")]
-        public Item Get(int itemid)
+        public Item Get(int id)
         {
-            System.Console.WriteLine(itemid);
+            //System.Console.WriteLine("Returned an id of: " + id);
             IGetItem getItem = new ReadItemData();
-            return getItem.GetAnItem(itemid);
+            return getItem.GetAnItem(id);
         }
 
         // POST: api/Item
