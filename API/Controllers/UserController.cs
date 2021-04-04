@@ -8,47 +8,43 @@ using API.Models;
 using API.Models.Interfaces;
 using Microsoft.AspNetCore.Cors;
 
-namespace api.Controllers
+namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemController : ControllerBase
+    public class UserController : ControllerBase
     {
-        // GET: api/Item
+        // GET: api/User
         [EnableCors("Policy")]
         [HttpGet]
-        public List<Item> Get()
+        public List<User> Get()
         {
-            IGetAllItems allItems = new ReadItemData();
-            return allItems.GetAllItems();
+            IGetAllUsers getAllUsers = new ReadUserData();
+            return getAllUsers.GetAllUsers();
         }
 
-        // GET: api/Item/5
+        // GET: api/User/5
         [EnableCors("Policy")]
         [HttpGet("{id}", Name = "Get")]
-        public Item Get(int id)
+        public User Get(int id)
         {
-            //System.Console.WriteLine("Returned an id of: " + id);
-            IGetItem getItem = new ReadItemData();
-            return getItem.GetAnItem(id);
+            IGetUser getUser = new ReadUserData();
+            return getUser.GetAUser(id);
         }
 
-        // POST: api/Item
-        [EnableCors("Policy")]
+        // POST: api/User
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/Item/5
-        [EnableCors("Policy")]
+        // PUT: api/User/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
-        [EnableCors("Policy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
