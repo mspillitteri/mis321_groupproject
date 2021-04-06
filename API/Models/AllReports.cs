@@ -1,13 +1,12 @@
 using API.Models.Interfaces;
 using System.Collections.Generic;
-using API.Database;
 using MySql.Data.MySqlClient;
 
 namespace API.Models
 {
     public class AllReports : IReport
     {
-         public void ReportInventory()
+         public List<Item> ReportInventory()
          {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;

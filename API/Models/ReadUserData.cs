@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using API.Models.Interfaces;
-using API.Database;
 using MySql.Data.MySqlClient;
 
 namespace API.Models
@@ -25,7 +24,7 @@ namespace API.Models
                     pword = rdr.GetString(2),
                     userfname = rdr.GetString(3),
                     userlname = rdr.GetString(4),
-                    userstatus = rdr.GetString(5),
+                    userstatus = rdr.GetInt32(5),
                     isadmin = rdr.GetBoolean(6)
                     };
                 users.Add(u);
@@ -51,7 +50,7 @@ namespace API.Models
                 pword = rdr.GetString(2),
                 userfname = rdr.GetString(3),
                 userlname = rdr.GetString(4),
-                userstatus = rdr.GetString(5),
+                userstatus = rdr.GetInt32(5),
                 isadmin = rdr.GetBoolean(6)
             };
             return u;

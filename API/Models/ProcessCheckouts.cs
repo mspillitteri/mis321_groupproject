@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using API.Models.Interfaces;
-using API.Database;
 using MySql.Data.MySqlClient;
 namespace API.Models
 {
@@ -13,20 +13,21 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string tempcheckouttime = DateTime.Now.ToString("MM/dd/yy H:mm:ss tt");
-            string tempdue = tempcheckouttime.AddDays(14);
+            string tempcheckouttime = DateTime.Now.ToString();
+            string tempdue = DateTime.Now.AddDays(14).ToString();
+            string stm = @"INSERT INTO checkouts(itemid, userid, checkouttime, duedate, isreturned) 
+            VALUES(@itemid, @userid, @checkouttime, @duedate, @isreturned)";
             var cmd = new MySqlCommand(stm, con);
             
-            cmd.CommandText = @"INSERT INTO checkouts(itemid, userid, checkouttime, duedate, isreturned) 
-            VALUES(@itemid, @userid, @checkouttime, @duedate, @isreturned)";
+            //cmd.CommandText = @"INSERT INTO checkouts(itemid, userid, checkouttime, duedate, isreturned) 
+            //VALUES(@itemid, @userid, @checkouttime, @duedate, @isreturned)";
             cmd.Parameters.AddWithValue("@itemid", ivalue.itemid);
             cmd.Parameters.AddWithValue("@userid", uvalue.userid);
             cmd.Parameters.AddWithValue("@checkouttime", tempcheckouttime);
-            cmd.Parameters.AddWithValue("@duedate", tempTime);
+            cmd.Parameters.AddWithValue("@duedate", tempdue);
             cmd.Parameters.AddWithValue("@isreturned", 0);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
-
         }
     }
 }

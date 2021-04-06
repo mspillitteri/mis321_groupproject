@@ -7,7 +7,7 @@ namespace API.Models
         public string pword {get;set;}
         public string userfname {get;set;}
         public string userlname {get;set;}
-        public string userstatus {get;set;}
+        public int userstatus {get;set;}
         public bool isadmin {get;set;}
     }
 }
