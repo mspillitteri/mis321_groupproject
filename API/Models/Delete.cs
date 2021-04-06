@@ -1,3 +1,6 @@
+using API.Models.Interfaces;
+using MySql.Data.MySqlClient;
+
 namespace API.Models
 {
     public class Delete : IDelete
