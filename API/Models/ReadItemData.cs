@@ -12,7 +12,7 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT * FROM items ORDER BY itemname";
+            string stm = "SELECT * FROM items";
             var cmd = new MySqlCommand(stm, con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
