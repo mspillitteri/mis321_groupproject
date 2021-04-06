@@ -9,7 +9,7 @@ namespace API.Models
     {
          public void ReportInventory()
          {
-             ConnectionString myConnection = new ConnectionString();
+            ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             var con = new MySqlConnection(cs);
             con.Open();
