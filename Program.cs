@@ -8,7 +8,6 @@ namespace mis321_groupproject
         {
             Console.WriteLine("Hello World!");
             Console.Write("hi");
-            
         }
     }
 }
