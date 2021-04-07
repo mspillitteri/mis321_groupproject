@@ -1,3 +1,6 @@
+using API.Models.Interfaces;
+using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 namespace API.Models
 {
     public class Add
@@ -30,8 +33,8 @@ namespace API.Models
 
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@itemname", ivalue.itemvalue);
-            cmd.Parameters.AddWithValue("@itemstatus", uvalue.itemstatus);
-            cmd.Parameters.AddWithValue("@ischeckedout", uvalue.ischeckedout);
+            cmd.Parameters.AddWithValue("@itemstatus", ivalue.itemstatus);
+            cmd.Parameters.AddWithValue("@ischeckedout", ivalue.ischeckedout);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
