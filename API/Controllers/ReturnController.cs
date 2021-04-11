@@ -4,41 +4,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using API.Models;
-using API.Models.Interfaces;
-using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class ReturnController : ControllerBase
     {
-        // GET: api/User
-        [EnableCors("Policy")]
+        // GET: api/Return
         [HttpGet]
-        public List<User> GetAllUsers()
+        public IEnumerable<string> GetAllReturns()
         {
-            IGetAllUsers getAllUsers = new ReadUserData();
-            return getAllUsers.GetAllUsers();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET: api/User/5
-        [EnableCors("Policy")]
-        [HttpGet("{id}", Name = "GetUser")]
-        public User GetUser(int id)
+        // GET: api/Return/5
+        [HttpGet("{id}", Name = "GetReturn")]
+        public string GetReturn(int id)
         {
-            IGetUser getUser = new ReadUserData();
-            return getUser.GetAUser(id);
+            return "value";
         }
 
-        // POST: api/User
+        // POST: api/Return
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/User/5
+        // PUT: api/Return/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
@@ -48,7 +41,6 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            
         }
     }
 }
