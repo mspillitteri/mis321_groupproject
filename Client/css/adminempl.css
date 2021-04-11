@@ -1,0 +1,61 @@
+ 
+  h1{
+    font-family: serif;
+    font-size: 60px;
+    color: #FFFFFF;
+    padding: 5% 0 0;
+    text-shadow: 4px 4px #4d0000;
+    font-weight: 600x;
+  }
+  h2{
+      font-family: serif;
+      color: white;
+      font-size: 20px;
+  }
+    
+    :root {
+      --background: #6e0a1e;
+      --light: grey;
+      --text: white;
+    }
+    
+    body {
+      background-size: 103%;
+    background-image: url("./images/ScriptA.jpg");
+    background-repeat: no-repeat;
+      font-family: "Roboto", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;   
+    }
+    
+    div {
+      display: block;
+      width: 400px;
+      margin: 0 auto 0 auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 30vh;
+    }
+    
+    button {
+      display: block;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background-color: var(--light);
+      width: 400px;
+      height: 70px;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      background-size: 100% 100%;
+  
+      margin-bottom: 15px;
+    }
+    
+    button:hover,.form button:active,.form button:focus {
+      background: darkslategray;
+    }
+    
