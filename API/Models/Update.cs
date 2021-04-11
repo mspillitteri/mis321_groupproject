@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using API.Models.Interfaces;
 using MySql.Data.MySqlClient;
-
 namespace API.Models
 {
     public class Update : IUpdate

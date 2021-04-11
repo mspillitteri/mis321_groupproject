@@ -1,5 +1,6 @@
+using API.Models.Interfaces;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-
 namespace API.Models
 {
     public class Add
@@ -31,7 +32,11 @@ namespace API.Models
             string stm = @"INSERT INTO items(itemname, itemstatus, ischeckedout) VALUES(@itemname, @itemstatus, @ischeckedout)";
 
             var cmd = new MySqlCommand(stm, con);
+<<<<<<< HEAD
+            cmd.Parameters.AddWithValue("@itemname", ivalue.itemvalue);
+=======
             cmd.Parameters.AddWithValue("@itemname", ivalue.itemname);
+>>>>>>> 17f1e4d8ee5669310a30337978e46d62c0e299ee
             cmd.Parameters.AddWithValue("@itemstatus", ivalue.itemstatus);
             cmd.Parameters.AddWithValue("@ischeckedout", ivalue.ischeckedout);
             cmd.Prepare();
