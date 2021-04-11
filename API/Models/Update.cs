@@ -5,7 +5,7 @@ namespace API.Models
 {
     public class Update : IUpdate
     {
-        public void UpdateCheckout(Checkouts cvalue)
+        public void UpdateCheckOut(Checkouts cvalue)
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
