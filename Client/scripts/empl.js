@@ -1,29 +1,28 @@
-// function getItems(userid) {
-//     const url = "https://localhost:5001/API/Item";
-//     //const url2 = "https://localhost:5001/API/User";
+function getItems() {
+    const userid = localStorage.getItem("userid");
+    const url = "https://localhost:5001/API/Item";
 
-//     fetch(url).then(function(reponse){
-//         console.log(reponse);
-//         return reponse.json();
-//     }).then(function(json){
-//         let html = "<ul id=\"list\">";
-//         json.forEach((item)=>{
-//             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
-//             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
-//             html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
-//             html += "&nbsp;"
-//             html += "<button class=\"buttons\">Return</button>";
+    fetch(url).then(function(reponse){
+        console.log(reponse);
+        return reponse.json();
+    }).then(function(json){
+        let html = "<ul id=\"list\">";
+        json.forEach((item)=>{
+            html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
+            html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
+            html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
+            html += "&nbsp;"
+            html += "<button class=\"buttons\">Return</button>";
 
-//             html += "</li>";
-//         });
-//         html += "</ul>";
-//         document.getElementById("items").innerHTML = html;
-//     }).catch(function(error){
-//         console.log(error);
-//     });
-// }
+            html += "</li>";
+        });
+        html += "</ul>";
+        document.getElementById("items").innerHTML = html;
+    }).catch(function(error){
+        console.log(error);
+    });
+}
 
-// in progress
 function addCheckout(currentItem, currentUser) {
     const url = "https://localhost:5001/API/Checkout/" + currentUser;
 
