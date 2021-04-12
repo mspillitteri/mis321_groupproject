@@ -22,9 +22,9 @@ function getItems() {
     });
 }
 
-function addCheckout() {
+// in progress
+function addCheckout(currentItem, currentUser) {
     const url = "https://localhost:5001/API/Checkout";
-    const postText = document.getElementById("").value;
 
     fetch(url, {
         method: "POST",
@@ -33,7 +33,8 @@ function addCheckout() {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify({
-            text: postText
+            itemid: currentItem,
+            userid: currentUser
         })
     })
     .then((response)=>{
@@ -41,3 +42,5 @@ function addCheckout() {
         getPosts();
     })
 }
+
+// onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\"

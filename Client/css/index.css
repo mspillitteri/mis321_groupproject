@@ -34,7 +34,8 @@ h1{
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form button,
+#loginbutton {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -48,7 +49,8 @@ h1{
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+.form button:hover,.form button:active,.form button:focus,
+#loginbutton:hover,#loginbutton:active,#loginbutton:focus {
   background: #43A047;
 }
 
