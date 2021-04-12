@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using API.Models;
+using API.Models.Interfaces;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
@@ -12,6 +15,7 @@ namespace API.Controllers
     public class CheckoutController : ControllerBase
     {
         // GET: api/Checkout
+        [EnableCors("Policy")]
         [HttpGet]
         public IEnumerable<string> GetAllCheckouts()
         {
@@ -19,16 +23,20 @@ namespace API.Controllers
         }
 
         // GET: api/Checkout/5
+        [EnableCors("Policy")]
         [HttpGet("{id}", Name = "GetCheckout")]
         public string GetCheckout(int id)
         {
             return "value";
         }
 
-        // POST: api/Checkout
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST: api/Checkout/5
+        [EnableCors("Policy")]
+        [HttpPost("{id}")]
+        public void PostCheckout([FromBody] Item ivalue, int id)
         {
+            ICheckout addCheckout = new ProcessCheckouts();
+            addCheckout.AddCheckout(ivalue, id);
         }
 
         // PUT: api/Checkout/5
