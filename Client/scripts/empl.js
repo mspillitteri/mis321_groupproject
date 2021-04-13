@@ -2,6 +2,8 @@ function getItems() {
     const userid = localStorage.getItem("userid");
     const url = "https://localhost:5001/API/Item";
 
+    writeUserName();
+
     fetch(url).then(function(reponse){
         console.log(reponse);
         return reponse.json();
@@ -10,10 +12,14 @@ function getItems() {
         json.forEach((item)=>{
             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
-            html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
-            html += "&nbsp;"
+            if (item.ischeckedout == true) { 
+                html += "&nbsp;"
+            }
+            else {
+                html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
+                html += "&nbsp;"
+            }
             html += "<button class=\"buttons\">Return</button>";
-
             html += "</li>";
         });
         html += "</ul>";
@@ -38,7 +44,14 @@ function addCheckout(currentItem, currentUser) {
     })
     .then((response)=>{
         console.log(response);
+        getItems();
     })
+}
+
+function writeUserName() {
+    const userName = localStorage.getItem("userName");
+    let html = "<p>Welcome " + userName + "</p>";
+    document.getElementById("welcomeuser").innerHTML = html;
 }
 
 // onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\"

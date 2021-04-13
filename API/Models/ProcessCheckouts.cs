@@ -28,6 +28,11 @@ namespace API.Models
             cmd.Parameters.AddWithValue("@isreturned", 0);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
+
+            cmd.CommandText = @"UPDATE items SET ischeckedout = 1 WHERE itemid = @item_id";
+            cmd.Parameters.AddWithValue("@item_id", ivalue.itemid);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
         }
     }
 }

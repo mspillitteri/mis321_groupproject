@@ -21,6 +21,7 @@ function login(users) {
         }
         else if (loginInfo == user.email) {
             localStorage.setItem("userid", user.userid);
+            localStorage.setItem("userName", user.userfname + " " + user.userlname);
             window.location.href = "./empl.html";
         }
     });
