@@ -47,5 +47,19 @@ namespace API.Models
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
+        public void ListReturnItems(int userid) {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            var con = new MySqlConnection(cs);
+            con.Open();
+
+            string stm = @"SELECT itemid, itemname, duedate FROM items i JOIN checkouts c (i.itemid = c.itemid) WHERE ischeckedout = 1 AND userid = @userid";
+            
+            var cmd = new MySqlCommand(stm, con);
+
+            cmd.Parameters.AddWithValue("@userid", userid);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+        }
     }
 }
