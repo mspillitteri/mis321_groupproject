@@ -6,39 +6,42 @@ namespace API.Models
 {
     public class ProcessReturns : IReturn
     {
-        public void AddReturn(Checkouts cvalue, User uvalue)
+        public void AddReturn(Checkouts cvalue, int userid, int userstatus, int ivalue)
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string tempreturntime = DateTime.Now.ToString();
+            System.DateTime tempreturntime = DateTime.Now;
             string stm = @"INSERT INTO itemreturns(checkoutid, returndate) 
-            VALUES(@checkoutid, @returndate, @strikecount)";
+            VALUES(@checkoutid, @returndate)";
             var cmd = new MySqlCommand(stm, con);
-            // cmd.CommandText = @"INSERT INTO itemreturns(checkoutid, returndate) 
-            // VALUES(@checkoutid, @returndate, @strikecount)";
 
             cmd.Parameters.AddWithValue("@checkoutid", cvalue.checkoutid);
             cmd.Parameters.AddWithValue("@returndate", tempreturntime);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = @"UPDATE checkouts SET isreturned = @isreturned WHERE checkoutid = @checkoutid";
-            cmd.Parameters.AddWithValue("@isreturned", 1);
+            cmd.CommandText = @"UPDATE checkouts SET isreturned = 1 WHERE checkoutid = @checkout_id";
+            cmd.Parameters.AddWithValue("@checkout_id", cvalue);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = @"UPDATE items SET ischeckedout = 0 where itemid = @itemid";
+            cmd.Parameters.AddWithValue("@itemid", ivalue);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = @"UPDATE user SET userstatus = @userstatus WHERE userid = @userid";
-
+            cmd.Parameters.AddWithValue("@userid", userid);
             if(tempreturntime.CompareTo(cvalue.duedate) > 0)
             {
-                cmd.Parameters.AddWithValue("@userstatus", uvalue.userstatus + 1);
+                cmd.Parameters.AddWithValue("@userstatus", userstatus + 1);
             }
             else
             {
-                cmd.Parameters.AddWithValue("@userstatus", uvalue.userstatus);
+                cmd.Parameters.AddWithValue("@userstatus", userstatus);
             }
 
             cmd.Prepare();
