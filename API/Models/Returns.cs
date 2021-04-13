@@ -2,8 +2,8 @@ namespace API.Models
 {
     public class Returns
     {
-        int returnid{get; set;}
-        int checkoutid {get; set;}
-        string returndate{get; set;}
+        public int returnid{get; set;}
+        public int checkoutid {get; set;}
+        public System.DateTime returndate{get; set;}
     }
 }

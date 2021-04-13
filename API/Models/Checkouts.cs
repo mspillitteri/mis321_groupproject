@@ -5,8 +5,8 @@ namespace API.Models
         public int checkoutid{get; set;}
         public int itemid{get; set;}
         public int userid{get; set;}
-        public string checkouttime{get; set;}
-        public string duedate{get; set;}
+        public System.DateTime checkouttime{get; set;}
+        public System.DateTime duedate{get; set;}
         public bool isreturned{get; set;}
 
     }

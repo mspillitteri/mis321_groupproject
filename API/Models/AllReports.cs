@@ -29,7 +29,7 @@ namespace API.Models
             }
             return items;
          }
-         public List<Item> ReportCheckedOutItems()
+         public List<CheckedOutItems> ReportCheckedOutItems()
          {
              ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -40,18 +40,16 @@ namespace API.Models
             var cmd = new MySqlCommand(stm, con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
-            List<Item> items = new List<Item>();
+            List<CheckedOutItems> items = new List<CheckedOutItems>();
             while (reader.Read()) {
-                Item i = new Item(){
+                CheckedOutItems i = new CheckedOutItems(){
                     itemid = reader.GetInt32(0),
                     itemname = reader.GetString(1),
-                    itemstatus = reader.GetString(2),
-                    ischeckedout = reader.GetBoolean(3)
+                    duedate = reader.GetDateTime(2)
                     };
                 items.Add(i);
             }
             return items;
-
          }
     }
 }
