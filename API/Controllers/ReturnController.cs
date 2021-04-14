@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using API.Models;
+using API.Models.Interfaces;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
@@ -12,6 +15,7 @@ namespace API.Controllers
     public class ReturnController : ControllerBase
     {
         // GET: api/Return
+        [EnableCors("Policy")]
         [HttpGet]
         public IEnumerable<string> GetAllReturns()
         {
@@ -19,16 +23,19 @@ namespace API.Controllers
         }
 
         // GET: api/Return/5
+        [EnableCors("Policy")]
         [HttpGet("{id}", Name = "GetReturn")]
         public string GetReturn(int id)
         {
             return "value";
         }
 
-        // POST: api/Return
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST: api/Return/5
+        [EnableCors("Policy")]
+        [HttpPost("{id}")]
+        public void PostReturn([FromBody] Checkouts cvalue)
         {
+            
         }
 
         // PUT: api/Return/5

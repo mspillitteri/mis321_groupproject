@@ -6,6 +6,6 @@ namespace API.Models.Interfaces
     {
          public void AddReturn(Checkouts cvalue, int userid, int userstatus, int ivalue);
 
-         public List<CheckedOutItems> ListReturnItems(int userid);
+         //public List<CheckedOutItems> ListReturnItems(int userid);
     }
 }

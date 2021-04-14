@@ -46,6 +46,7 @@ function getReturnItems(checkout) {
 }
 
 function addReturn() {
+    const userid = localStorage.getItem("userid");
     const url = "https://localhost:5001/API/Return/" + currentUser;
 
     fetch(url, {
@@ -55,7 +56,7 @@ function addReturn() {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify({
-            itemid: currentItem
+            checkoutid: placeholder
         })
     })
     .then((response)=>{

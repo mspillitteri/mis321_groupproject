@@ -14,7 +14,6 @@ function getUsers() {
 function login(users) {
     const loginInfo = document.getElementById("logintext").value;
     users.forEach(user =>{
-        console.log(user.userid);
         if (loginInfo == user.email && user.isadmin == true) {
             localStorage.setItem("userid", user.userid);
             localStorage.setItem("userName", user.userfname + " " + user.userlname);
@@ -26,7 +25,6 @@ function login(users) {
             window.location.href = "./emplhome.html";
         }
     });
-    console.log("Invalid login");
 }
 
 // function getItems() {
