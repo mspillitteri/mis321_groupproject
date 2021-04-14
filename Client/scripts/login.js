@@ -1,9 +1,9 @@
 function getUsers() {
     const url = "https://localhost:5001/API/User";
 
-    fetch(url).then(function(reponse){
-        console.log(reponse);
-        return reponse.json();
+    fetch(url).then(function(response){
+        console.log(response);
+        return response.json();
     }).then(function(json){
         console.log(json);
         users = json;
@@ -17,7 +17,8 @@ function login(users) {
         console.log(user.userid);
         if (loginInfo == user.email && user.isadmin == true) {
             localStorage.setItem("userid", user.userid);
-            window.location.href = "./admin.html";
+            localStorage.setItem("userName", user.userfname + " " + user.userlname);
+            window.location.href = "./adminhome.html";
         }
         else if (loginInfo == user.email) {
             localStorage.setItem("userid", user.userid);

@@ -47,7 +47,7 @@ namespace API.Models
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
-        public void ListReturnItems(int userid) {
+        public List<CheckedOutItems> ListReturnItems(int userid) {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             var con = new MySqlConnection(cs);
@@ -59,7 +59,19 @@ namespace API.Models
 
             cmd.Parameters.AddWithValue("@userid", userid);
             cmd.Prepare();
-            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+            reader.Read();
+            List<CheckedOutItems> items = new List<CheckedOutItems>();
+            while (reader.Read()) {
+                CheckedOutItems i = new CheckedOutItems(){
+                    itemid = reader.GetInt32(0),
+                    itemname = reader.GetString(1),
+                    duedate = reader.GetDateTime(2)
+                    };
+                items.Add(i);
+            }
+            return items;
         }
     }
 }

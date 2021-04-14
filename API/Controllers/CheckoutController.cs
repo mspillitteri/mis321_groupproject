@@ -17,9 +17,10 @@ namespace API.Controllers
         // GET: api/Checkout
         [EnableCors("Policy")]
         [HttpGet]
-        public IEnumerable<string> GetAllCheckouts()
+        public List<Checkouts> GetAllCheckouts()
         {
-            return new string[] { "value1", "value2" };
+            IGetAllCheckouts allCheckouts = new ReadCheckoutData();
+            return allCheckouts.GetAllCheckouts();
         }
 
         // GET: api/Checkout/5
