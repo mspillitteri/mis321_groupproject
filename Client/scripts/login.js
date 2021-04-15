@@ -17,11 +17,13 @@ function login(users) {
         if (loginInfo == user.email && user.isadmin == true) {
             localStorage.setItem("userid", user.userid);
             localStorage.setItem("userName", user.userfname + " " + user.userlname);
+            localStorage.setItem("userstatus", user.userstatus);
             window.location.href = "./adminhome.html";
         }
         else if (loginInfo == user.email) {
             localStorage.setItem("userid", user.userid);
             localStorage.setItem("userName", user.userfname + " " + user.userlname);
+            localStorage.setItem("userstatus", user.userstatus);
             window.location.href = "./emplhome.html";
         }
     });

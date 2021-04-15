@@ -32,10 +32,11 @@ namespace API.Controllers
 
         // POST: api/Return/5
         [EnableCors("Policy")]
-        [HttpPost("{id}")]
-        public void PostReturn([FromBody] Checkouts cvalue)
+        [HttpPost("{userid}/{userstat}/{itemid}")]
+        public void PostReturn([FromBody] Checkouts cvalue, int userid, int userstat, int itemid)
         {
-            
+            IReturn addReturn = new ProcessReturns();
+            addReturn.AddReturn(cvalue, userid, userstat, itemid);
         }
 
         // PUT: api/Return/5

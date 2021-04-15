@@ -33,7 +33,7 @@ namespace API.Models
             cmd.Prepare();
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = @"UPDATE user SET userstatus = @userstatus WHERE userid = @userid";
+            cmd.CommandText = @"UPDATE users SET userstatus = @userstatus WHERE userid = @userid";
             cmd.Parameters.AddWithValue("@userid", userid);
             if(tempreturntime.CompareTo(cvalue.duedate) > 0)
             {

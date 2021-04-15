@@ -34,7 +34,7 @@ function getReturnItems(checkout) {
             if (item.ischeckedout == true && userid == checkout) {
                 html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
                 html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
-                html += "<button class=\"buttons\">Return</button>";
+                html += "<button class=\"buttons\"onclick=\"findCheckout("+item.itemid+")\">Return</button>";
                 html += "</li><p></p>";
             }
         });
@@ -45,9 +45,11 @@ function getReturnItems(checkout) {
     });
 }
 
-function addReturn() {
+function addReturn(checkout, itemid) {
+
+    const userstat = localStorage.getItem("userstatus");
     const userid = localStorage.getItem("userid");
-    const url = "https://localhost:5001/API/Return/" + currentUser;
+    const url = "https://localhost:5001/API/Return/" + userid + "/" + userstat + "/" + itemid;
 
     fetch(url, {
         method: "POST",
@@ -56,12 +58,12 @@ function addReturn() {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify({
-            checkoutid: placeholder
+            checkoutid: checkout.checkoutid
         })
     })
     .then((response)=>{
         console.log(response);
-        getItems();
+        getReturnItems();
     })
 }
 
@@ -69,4 +71,23 @@ function writeUserName() {
     const userName = localStorage.getItem("userName");
     let html = "<p>Welcome " + userName + "</p>";
     document.getElementById("welcomeuser").innerHTML = html;
+}
+
+function findCheckout(itemid)
+{
+    const userid = localStorage.getItem("userid");
+    const url = "https://localhost:5001/API/Checkout/";
+
+    fetch(url).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        for (i=0; i<json.length; i++) {
+            if (json[i].userid == userid && json[i].itemid == itemid) {
+                addReturn(json[i], itemid);
+                break;
+            }
+        }
+    });
+
 }
