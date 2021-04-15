@@ -40,12 +40,14 @@ namespace API.Controllers
         }
 
         // PUT: api/Return/5
+        [EnableCors("Policy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
+        [EnableCors("Policy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

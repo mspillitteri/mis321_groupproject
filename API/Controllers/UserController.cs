@@ -33,18 +33,21 @@ namespace API.Controllers
         }
 
         // POST: api/User
+        [EnableCors("Policy")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/User/5
+        [EnableCors("Policy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
+        [EnableCors("Policy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

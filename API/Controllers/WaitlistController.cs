@@ -12,35 +12,35 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CheckoutController : ControllerBase
+    public class WaitlistController : ControllerBase
     {
-        // GET: api/Checkout
+        // GET: api/Waitlist
         [EnableCors("Policy")]
         [HttpGet]
-        public List<Checkouts> GetAllCheckouts()
+        public IEnumerable<string> Get()
         {
-            IGetAllCheckouts allCheckouts = new ReadCheckoutData();
-            return allCheckouts.GetAllCheckouts();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Checkout/5
+        // GET: api/Waitlist/5
         [EnableCors("Policy")]
-        [HttpGet("{id}", Name = "GetCheckout")]
-        public string GetCheckout(int id)
+        [HttpGet("{id}", Name = "GetWaitlist")]
+        public List<Waitlist> GetWaitlist(int id)
         {
-            return "value";
+            IGetWaitlist getWaitlist = new ReadWaitlistData();
+            return getWaitlist.GetItemWaitlist(id);
         }
 
-        // POST: api/Checkout/5
+        // POST: api/Waitlist
         [EnableCors("Policy")]
         [HttpPost("{id}")]
-        public void PostCheckout([FromBody] Item ivalue, int id)
+        public void PostWaitlist([FromBody] Item ivalue, int id)
         {
-            ICheckout addCheckout = new ProcessCheckouts();
-            addCheckout.AddCheckout(ivalue, id);
+            IAddWaitlist addWaitlist = new ProcessWaitlists();
+            addWaitlist.AddWaitlist(ivalue, id);
         }
 
-        // PUT: api/Checkout/5
+        // PUT: api/Waitlist/5
         [EnableCors("Policy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
