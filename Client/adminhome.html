@@ -4,16 +4,19 @@
     <link rel="stylesheet" href="./css/adminempl.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script id="loginscript" type= "text/javascript" src="./scripts/login.js"></script>
+    <script id="adminhomescript" type= "text/javascript" src="./scripts/adminhome.js"></script>
     <title>CCS Inventory</title>
 </head>
 <body>
 
     <h2>Admin Access</h2>
+    <h3 id="welcomeuser"></h3>
       <h1><center>CCS Inventory</center></h1>
      
 <div>
-    <button>View Inventory Report</button>
-    <button>View Current Report</button>
+    <button onclick="adminInvReport()">View Inventory Report</button>
+    <button onclick="adminCurrentReport()">View Current Report</button>
     <button>Data Override</button>
   </div>
     

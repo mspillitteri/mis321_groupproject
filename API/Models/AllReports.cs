@@ -36,7 +36,7 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT items.itemid, itemname, duedate FROM items JOIN checkouts ON checkouts.itemid = items.itemid WHERE ischeckedout = 1 ORDER BY duedate";
+            string stm = "SELECT items.itemid, itemname, duedate FROM items JOIN checkouts ON checkouts.itemid = items.itemid WHERE ischeckedout = 1 GROUP BY items.itemid ORDER BY duedate";
             var cmd = new MySqlCommand(stm, con);
             
             MySqlDataReader reader = cmd.ExecuteReader();

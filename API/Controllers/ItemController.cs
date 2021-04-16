@@ -16,12 +16,21 @@ namespace api.Controllers
     {
         // GET: api/Item
         [EnableCors("Policy")]
-        [HttpGet]
-        public List<Item> Get()
+        [HttpGet(Name = "GetAllItems")]
+        public List<Item> GetAllItems()
         {
             IGetAllItems allItems = new ReadItemData();
             return allItems.GetAllItems();
         }
+
+        // // GET: api/Item
+        // [EnableCors("Policy")]
+        // [HttpGet(Name = "GetInventoryItems")]
+        // public List<Item> ReportInventory()
+        // {
+        //     IReport inventoryItems = new AllReports();
+        //     return inventoryItems.ReportInventory();
+        // }
 
         // GET: api/Item/5
         [EnableCors("Policy")]

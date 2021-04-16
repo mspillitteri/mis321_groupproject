@@ -17,9 +17,10 @@ namespace API.Controllers
         // GET: api/Waitlist
         [EnableCors("Policy")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Waitlist> GetAllWaitlists()
         {
-            return new string[] { "value1", "value2" };
+            IGetAllWaitlists getWaitlists = new ReadWaitlistData();
+            return getWaitlists.GetAllWaitlists();
         }
 
         // GET: api/Waitlist/5

@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace API.Models
 {
-    public class ReadWaitlistData : IGetWaitlist
+    public class ReadWaitlistData : IGetWaitlist, IGetAllWaitlists
     {
         public List<Waitlist> GetItemWaitlist(int itemid) {
             ConnectionString myConnection = new ConnectionString();
@@ -15,6 +15,29 @@ namespace API.Models
             string stm = @"SELECT * FROM waitlist WHERE itemid = @itemid";
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@itemid",itemid);
+            cmd.Prepare();
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<Waitlist> waitlist = new List<Waitlist>();
+            
+            while (rdr.Read()) {
+                Waitlist w = new Waitlist(){
+                    waitlistid = rdr.GetInt32(0),
+                    itemid = rdr.GetInt32(1),
+                    userid = rdr.GetInt32(2)
+                    };
+                waitlist.Add(w);
+            }
+            return waitlist;
+        }
+
+        public List<Waitlist> GetAllWaitlists() {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            var con = new MySqlConnection(cs);
+            con.Open();
+
+            string stm = @"SELECT * FROM waitlist";
+            var cmd = new MySqlCommand(stm, con);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
             List<Waitlist> waitlist = new List<Waitlist>();
