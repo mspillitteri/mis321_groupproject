@@ -36,7 +36,8 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT items.itemid, itemname, duedate FROM items JOIN checkouts ON checkouts.itemid = items.itemid WHERE ischeckedout = 1 GROUP BY items.itemid ORDER BY duedate";
+            string stm = "SELECT items.itemid, itemname, userfname, userlname, duedate FROM items JOIN checkouts ON checkouts.itemid = items.itemid "; 
+            stm += "JOIN users ON users.userid = checkouts.userid WHERE ischeckedout = 1 GROUP BY items.itemid ORDER BY duedate DESC";
             var cmd = new MySqlCommand(stm, con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -45,7 +46,9 @@ namespace API.Models
                 CheckedOutItems i = new CheckedOutItems(){
                     itemid = reader.GetInt32(0),
                     itemname = reader.GetString(1),
-                    duedate = reader.GetDateTime(2)
+                    userfname = reader.GetString(2),
+                    userlname = reader.GetString(3),
+                    duedate = reader.GetDateTime(4)
                     };
                 items.Add(i);
             }

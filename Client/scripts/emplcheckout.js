@@ -1,19 +1,17 @@
+var waitlists = "";
+
 function getItems() {
     const userid = localStorage.getItem("userid");
     const url = "https://localhost:5001/API/Item";
-
     writeUserName();
 
     fetch(url).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
-
-        //getWaitlists();
-
         let html = "<ul id=\"list\">";
         json.forEach((item)=>{
-            //var topUser = getTopOfWaitlist(item.itemid);
+            var topUser = getTopOfWaitlist(item.itemid);
             //var hasWaitlist = waitlistCheck(item.itemid);
             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
@@ -86,34 +84,41 @@ function writeUserName() {
 }
 
 function getTopOfWaitlist(itemid) {
+    const url = "https://localhost:5001/API/Waitlist";
     const userid = localStorage.getItem("userid");
-    const url = "https://localhost:5001/API/Waitlist/" + itemid;
-    var topUser = "";
 
     fetch(url).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
-        waitlist = json;
-        topUser = waitlist[0].userid;
+        console.log(json);
+        var topUser = "";
+        json.forEach((waitlist)=>{
+        if (waitlist.itemid == itemid && waitlist.userid == userid) {
+            topUser = waitlist.userid;
+            }
+        });
+        return topUser;
     });
-    return topUser;
 }
 
 function waitlistCheck(itemid) {
-    const url = "https://localhost:5001/API/Waitlist/" + itemid;
-    var hasWaitlist = false;
+    const url = "https://localhost:5001/API/Waitlist";
 
     fetch(url).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
-        waitlist = json;
-        if (waitlist != null) {
+        console.log(json);
+        var hasWaitlist = false;
+        json.forEach((waitlist)=>{
+        if (waitlist.itemid == itemid) {
             hasWaitlist == true;
-        }
+            }
+        });
+        return hasWaitlist;
     });
-    return hasWaitlist;
+    
 }
 
 function getWaitlists() {
@@ -123,7 +128,7 @@ function getWaitlists() {
         console.log(response);
         return response.json();
     }).then(function(json){
-        
+        console.log(json);
+        return json;
     });
-    
 }
