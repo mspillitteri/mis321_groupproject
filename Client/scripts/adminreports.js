@@ -35,7 +35,7 @@ function getCheckedOut() {
         let html = "<ul id=\"list\">";
         json.forEach((item)=>{
             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
-            html += "&ensp;" + item.itemid + "&emsp;" + item.itemname + "&emsp;" + item.duedate;
+            html += "&ensp;" + item.itemid + "&emsp;" + item.itemname + "&emsp;" + item.userfname + " " + item.userlname + "&emsp;" + item.duedate;
         });
         html += "</ul>";
         document.getElementById("coitems").innerHTML = html;
