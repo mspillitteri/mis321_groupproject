@@ -12,7 +12,7 @@ function getItems() {
         let html = "<ul id=\"list\">";
         json.forEach((item)=>{
             var topUser = getTopOfWaitlist(item.itemid);
-            var hasWaitlist = waitlistCheck(item.itemid);
+            //var hasWaitlist = waitlistCheck(item.itemid);
             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
             if (item.ischeckedout == true) { 
@@ -20,12 +20,12 @@ function getItems() {
                 html += "<button class=\"buttons\" onclick=\"addWaitlist("+item.itemid+",\'"+userid+"')\">Waitlist</button>";
                 html += "&nbsp;";
             }
-            else if (item.ischeckedout == false && topUser == userid) {
-                //show for top of waitlist
-                html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
-                html += "&nbsp;";
-            }
-            else if (item.ischeckedout == false && hasWaitlist == false) {
+            // else if (item.ischeckedout == false) {
+            //     //show for top of waitlist
+            //     html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
+            //     html += "&nbsp;";
+            // }
+            else if (item.ischeckedout == false) {
                 //show for everyone
                 html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
                 html += "&nbsp;";
