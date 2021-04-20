@@ -8,20 +8,18 @@
     <title>CCS Inventory</title>
     <script id="reportscript" type= "text/javascript" src="./scripts/adminreports.js"></script>
 </head>
-<body onload="getCheckedOut()">
+<body onload="onLoad()">
     
     <h2>Admin Access</h2>
-      <h1><center>CCS Inventory</center></h1>
+      <h1><center>Current Report</center></h1>
 
-    <div>
-        <form onsubmit="return false" method="GET">
-            <label class="bold" for="emplsearch">Search a User:</label>
-            <select name="emplsearch" id="emplsearch">
+    <form onsubmit="return false" method="POST">
+        <label class="bold" for="emplsearch">Search a User:</label>
+        <select name="emplsearch" id="emplsearch">
                 
-            </select>
-            <input type="button" value="Search" onclick="addCheckout()">
-        </form>
-    </div>
+        </select>
+        <input type="button" value="Search" onclick="filterCheckedOut()">
+    </form>
     
     <div id="coitems">
   
