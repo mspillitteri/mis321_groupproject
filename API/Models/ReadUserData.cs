@@ -21,11 +21,10 @@ namespace API.Models
                 User u = new User(){
                     userid = rdr.GetInt32(0),
                     email = rdr.GetString(1),
-                    pword = rdr.GetString(2),
-                    userfname = rdr.GetString(3),
-                    userlname = rdr.GetString(4),
-                    userstatus = rdr.GetInt32(5),
-                    isadmin = rdr.GetBoolean(6)
+                    userfname = rdr.GetString(2),
+                    userlname = rdr.GetString(3),
+                    userstatus = rdr.GetInt32(4),
+                    isadmin = rdr.GetBoolean(5)
                     };
                 users.Add(u);
             }
@@ -47,11 +46,10 @@ namespace API.Models
             User u = new User(){
                 userid = rdr.GetInt32(0),
                 email = rdr.GetString(1),
-                pword = rdr.GetString(2),
-                userfname = rdr.GetString(3),
-                userlname = rdr.GetString(4),
-                userstatus = rdr.GetInt32(5),
-                isadmin = rdr.GetBoolean(6)
+                userfname = rdr.GetString(2),
+                userlname = rdr.GetString(3),
+                userstatus = rdr.GetInt32(4),
+                isadmin = rdr.GetBoolean(5)
             };
             return u;
         }

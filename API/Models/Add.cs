@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 namespace API.Models
 {
-    public class Add
+    public class Add : IAdd
     {
         public void AddUser(User uvalue)
         {
@@ -12,13 +12,12 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"INSERT INTO users(email, userfname, userlname, userstatus) VALUES(@email, @userfname, @userlname, @userstatus)";
+            string stm = @"INSERT INTO users(email, userfname, userlname, userstatus, isadmin) VALUES(@email, @userfname, @userlname, 0, 0)";
 
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@email", uvalue.email);
             cmd.Parameters.AddWithValue("@userfname", uvalue.userfname);
             cmd.Parameters.AddWithValue("@userlname", uvalue.userlname);
-            cmd.Parameters.AddWithValue("@userstatus", uvalue.userstatus);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }

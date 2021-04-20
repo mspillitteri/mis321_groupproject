@@ -35,15 +35,19 @@ namespace API.Controllers
         // POST: api/User
         [EnableCors("Policy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] User uvalue)
         {
+            IAdd addUser = new Add();
+            addUser.AddUser(uvalue);
         }
 
         // PUT: api/User/5
         [EnableCors("Policy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] User uvalue)
         {
+            IUpdate updateUser = new Update();
+            updateUser.UpdateUser(id, uvalue);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -51,7 +55,8 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            
+            IDelete deleteUser = new Delete();
+            deleteUser.DeleteUser(id);
         }
     }
 }

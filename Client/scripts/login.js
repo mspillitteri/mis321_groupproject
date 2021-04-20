@@ -28,27 +28,3 @@ function login(users) {
         }
     });
 }
-
-// function getItems() {
-//     const userid = localStorage.getItem("userid");
-//     const url = "https://localhost:5001/API/Item";
-
-//     fetch(url).then(function(reponse){
-//         console.log(reponse);
-//         return reponse.json();
-//     }).then(function(json){
-//         let html = "<ul id=\"list\">";
-//         json.forEach((item)=>{
-//             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
-//             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
-//             html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
-//             html += "&nbsp;"
-//             html += "<button class=\"buttons\">Return</button>";
-//             html += "</li>";
-//         });
-//         html += "</ul>";
-//         document.getElementById("items").innerHTML = html;
-//     }).catch(function(error){
-//         console.log(error);
-//     });
-// }

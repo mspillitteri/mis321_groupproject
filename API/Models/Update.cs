@@ -39,14 +39,14 @@ namespace API.Models
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateUser(User uvalue)
+        public void UpdateUser(int userid, User uvalue)
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "UPDATE users SET email = @email, userfname = @userfname, userlname = @userlname, userstatus = @userstatus WHERE uvalue = @userid";
+            string stm = "UPDATE users SET email = @email, userfname = @userfname, userlname = @userlname, userstatus = @userstatus WHERE userid = @userid";
 
             var cmd = new MySqlCommand(stm, con);
             
@@ -54,7 +54,7 @@ namespace API.Models
             cmd.Parameters.AddWithValue("@userfname", uvalue.userfname);
             cmd.Parameters.AddWithValue("@userlname", uvalue.userlname);
             cmd.Parameters.AddWithValue("@userstatus", uvalue.userstatus);
-            cmd.Parameters.AddWithValue("@userid", uvalue.userid);
+            cmd.Parameters.AddWithValue("@userid", userid);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }

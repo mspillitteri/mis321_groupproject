@@ -7,6 +7,10 @@ function adminCurrentReport() {
     window.location.href = "./admincurrentreport.html";
 }
 
+function adminDataOverride() {
+    window.location.href = "./admindataoverride.html";
+}
+
 function writeUserName() {
     const userName = localStorage.getItem("userName");
     let html = "<p>Welcome " + userName + "</p>";

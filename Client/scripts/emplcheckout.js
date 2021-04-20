@@ -11,7 +11,7 @@ function getItems() {
     }).then(function(json){
         let html = "<ul id=\"list\">";
         json.forEach((item)=>{
-            var topUser = getTopOfWaitlist(item.itemid);
+            //var topUser = getTopOfWaitlist(item.itemid);
             //var hasWaitlist = waitlistCheck(item.itemid);
             html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
@@ -19,7 +19,7 @@ function getItems() {
                 //show if item is checked out
                 html += "<button class=\"buttons\" onclick=\"addWaitlist("+item.itemid+",\'"+userid+"')\">Join Waitlist</button>";
                 html += "&nbsp;";
-                html += "<button class=\"buttons\" onclick=\"getWaitlist("+item.itemid+")\">Show Waitlist</button>";
+                html += "<button class=\"buttons\" onclick=\"showPopout("+item.itemid+")\">Show Waitlist</button>";
             }
             else if (item.ischeckedout == false) {
                 //show for everyone

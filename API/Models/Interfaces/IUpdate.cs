@@ -4,6 +4,6 @@ namespace API.Models.Interfaces
     {
          public void UpdateCheckOut(Checkouts cvalue);
          public void UpdateItem(Item ivalue);
-         public void UpdateUser(User uvalue);
+         public void UpdateUser(int userid, User uvalue);
     }
 }

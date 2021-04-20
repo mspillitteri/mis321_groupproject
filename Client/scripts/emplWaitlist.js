@@ -5,26 +5,25 @@ function getWaitlist(itemid) {
         return response.json();
     }).then(function(json){
        
-        let html = "<ul id=\"list\">";
+        let html = "<table class=\"halfpage\">";
+        html += "<tr><th>WaitlistID</th><th>UserID</th><th>ItemID</th></tr>";
         json.forEach((waitlist)=>{
         if (waitlist.itemid == itemid) {
-            html += "<li class=\"flex\"><div class=\"picture\"></div>"; 
-            html += "&ensp;" + waitlist.waitlist + "&emsp;" + waitlist.userid + "&emsp;" + waitlist.itemid;
+            html += "<tr><td>" + waitlist.waitlistid + "</td>"; 
+            html += "<td>" + waitlist.userid + "</td>"; 
+            html += "<td>" + waitlist.itemid + "</td></tr>"; 
             }
-            html += "</li><p></p>";
         });
-        html += "</ul>";
-        document.getElementById("emplwaitlist").innerHTML = html;
+        html += "</table>";
+        document.getElementById("emplWaitlist").innerHTML = html;
     });
 }
 
 function showPopout(itemid){
+    getWaitlist(itemid);
     console.log(itemid);
     var modal = document.getElementById("editModal");
-    document.getElementById("display").value = post;
-
     modal.style.display = "block";
-    var span = document.getElementsByClassName("close")[0];
 }
 
 function closePopout()

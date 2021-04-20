@@ -8,7 +8,7 @@
     <script id="adminhomescript" type= "text/javascript" src="./scripts/adminhome.js"></script>
     <title>CCS Inventory</title>
 </head>
-<body>
+<body onload="writeUserName()">
 
     <h2>Admin Access</h2>
     <h3 id="welcomeuser"></h3>
@@ -17,7 +17,7 @@
 <div>
     <button onclick="adminInvReport()">View Inventory Report</button>
     <button onclick="adminCurrentReport()">View Current Report</button>
-    <button>Data Override</button>
+    <button onclick="adminDataOverride()">Data Override</button>
   </div>
     
 </body>
