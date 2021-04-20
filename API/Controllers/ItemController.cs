@@ -23,15 +23,6 @@ namespace api.Controllers
             return allItems.GetAllItems();
         }
 
-        // // GET: api/Item
-        // [EnableCors("Policy")]
-        // [HttpGet(Name = "GetInventoryItems")]
-        // public List<Item> ReportInventory()
-        // {
-        //     IReport inventoryItems = new AllReports();
-        //     return inventoryItems.ReportInventory();
-        // }
-
         // GET: api/Item/5
         [EnableCors("Policy")]
         [HttpGet("{id}", Name = "GetItem")]
@@ -45,15 +36,19 @@ namespace api.Controllers
         // POST: api/Item
         [EnableCors("Policy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Item ivalue)
         {
+            IAdd addItem = new Add();
+            addItem.AddItem(ivalue);
         }
 
         // PUT: api/Item/5
         [EnableCors("Policy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Item ivalue)
         {
+            IUpdate editItem = new Update();
+            editItem.UpdateItem(id, ivalue);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -61,6 +56,8 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            IDelete deleteItem = new Delete();
+            deleteItem.DeleteItem(id);
         }
     }
 }

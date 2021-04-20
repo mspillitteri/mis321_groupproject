@@ -10,14 +10,16 @@
 </head>
 <body onload="writeUserName()">
 
+  <button type="button" class="logout_button" onclick="logOut()">Logout</button> 
+
     <h2>Admin Access</h2>
     <h3 id="welcomeuser"></h3>
       <h1><center>CCS Inventory</center></h1>
      
 <div>
-    <button onclick="adminInvReport()">View Inventory Report</button>
-    <button onclick="adminCurrentReport()">View Current Report</button>
-    <button onclick="adminDataOverride()">Data Override</button>
+    <button class = "regular_button" onclick="adminInvReport()">View Inventory Report</button>
+    <button class = "regular_button" onclick="adminCurrentReport()">View Current Report</button>
+    <button class = "regular_button" onclick="adminDataOverride()">Data Override</button>
   </div>
     
 </body>

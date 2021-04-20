@@ -91,3 +91,7 @@ function findCheckout(itemid)
     });
 
 }
+
+function goBack() {
+    history.back();
+}

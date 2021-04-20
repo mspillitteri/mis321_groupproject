@@ -28,12 +28,11 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"INSERT INTO items(itemname, itemstatus, ischeckedout) VALUES(@itemname, @itemstatus, @ischeckedout)";
+            string stm = @"INSERT INTO items(itemname, itemstatus, ischeckedout) VALUES(@itemname, @itemstatus, 0)";
 
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@itemname", ivalue.itemname);
-            cmd.Parameters.AddWithValue("@itemstatus", ivalue.itemstatus);
-            cmd.Parameters.AddWithValue("@ischeckedout", ivalue.ischeckedout);
+            cmd.Parameters.AddWithValue("@itemstatus", "NEW");
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }

@@ -43,7 +43,7 @@ h1{
     }
 
     
-    button {
+    .regular_button {
       display: block;
       cursor: pointer;
       outline: none;
@@ -57,8 +57,8 @@ h1{
       color: var(--text);
       background-size: 100% 100%;
   
-      margin-bottom: 10px;
-      margin-left: 10px;
+      margin: auto;
+      margin-bottom: 20px;
     }
     
     button:hover,.form button:active,.form button:focus {

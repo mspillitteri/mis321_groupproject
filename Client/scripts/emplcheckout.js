@@ -128,3 +128,7 @@ function getWaitlists() {
         return json;
     });
 }
+
+function goBack() {
+    history.back();
+}

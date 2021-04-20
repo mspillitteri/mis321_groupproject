@@ -43,3 +43,7 @@ function getCheckedOut() {
         console.log(error);
     });
 }
+
+function goBack() {
+    history.back();
+}

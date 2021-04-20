@@ -43,8 +43,10 @@ namespace API.Controllers
         // PUT: api/Checkout/5
         [EnableCors("Policy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Checkouts cvalue)
         {
+            IUpdate updateCheckout = new Update();
+            updateCheckout.UpdateCheckOut(id, cvalue);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -52,6 +54,8 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            IDelete deleteCheckout = new Delete();
+            deleteCheckout.DeleteCheckout(id);
         }
     }
 }

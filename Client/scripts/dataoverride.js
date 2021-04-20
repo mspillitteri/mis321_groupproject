@@ -13,3 +13,7 @@ function adminCheckoutCRUD() {
 function adminWaitlistCRUD() {
     window.location.href = "./adminwaitlistCRUD.html";
 }
+
+function goBack() {
+    history.back();
+}

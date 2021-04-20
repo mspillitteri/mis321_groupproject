@@ -16,3 +16,10 @@ function writeUserName() {
     let html = "<p>Welcome " + userName + "</p>";
     document.getElementById("welcomeuser").innerHTML = html;
 }
+
+function logOut() {
+    history.back();
+    localStorage.removeItem("userid");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userstatus");
+}

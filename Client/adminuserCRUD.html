@@ -3,32 +3,36 @@
 <head>
     <link rel="stylesheet" href="./css/adminempl.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCS Inventory</title>
-    <script id="reportscript" type= "text/javascript" src="./scripts/userCRUD.js"></script>
+    <script id="userCRUDscript" type= "text/javascript" src="./scripts/userCRUD.js"></script>
 </head>
 <body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <button type="button" class="back_button" onclick="goBack()">Back</button> 
     
     <h2>Admin Access</h2>
-      <h1><center>CCS Inventory</center></h1>
+      <h1><center>User Override</center></h1>
 
-      <button onclick="createUserPopup()">Create</button>
-      <button onclick="editUserPopup()">Edit</button>
-      <button onclick="deleteUserPopup()">Delete</button>
+      <button class = "regular_button" onclick="createUserPopup()">Create</button>
+      <button class = "regular_button" onclick="editUserPopup()">Edit</button>
+      <button class = "regular_button" onclick="deleteUserPopup()">Delete</button>
 
     <div id = "createModal" class = "modal">
         <div class = "modal-content_data">
             <span class = "close" onclick = "closePopout(0)">&times;</span>
             <form onsubmit="return false" method="POST">
-                <label class="bold" for="editEmail">Email:</label>
-                <input type="text" name="editEmail" id="createEmail"><br><br>
-                <label class="bold" for="editFName">First Name:</label>
-                <input type="text" name="editFName" id="createFName"><br><br>
-                <label class="bold" for="editLName">Last Name:</label>
-                <input type="text" name="editLName" id="createLName"><br><br>
-                <input type="button" value="Submit" onclick="addUser()">
+                <label class="bold" for="createEmail">Email:</label>
+                <input type="text" name="createEmail" id="createEmail"><br><br>
+                <label class="bold" for="createFName">First Name:</label>
+                <input type="text" name="createFName" id="createFName"><br><br>
+                <label class="bold" for="createLName">Last Name:</label>
+                <input type="text" name="createLName" id="createLName"><br><br>
+                <input type="button" value="Add" onclick="addUser()">
             </form>
         </div>
     </div>
@@ -55,7 +59,7 @@
                     <option value="3">3+</option>
                 </select>
                 <label>Strike(s)</label><br><br>
-                <input type="button" value="Submit" onclick="editUser()">
+                <input type="button" value="Edit" onclick="editUser()">
             </form>
         </div>
     </div>
@@ -68,10 +72,13 @@
                 <select class="userid_data" name="userid" id="userid_delete">
                     
                 </select><br><br>
-                <input type="button" value="Delete User" onclick="deleteUser()">
+                <input type="button" value="Delete" onclick="deleteUser()">
             </form>
         </div>
     </div>
+
+    <!--Latest bootstrap jQuery-->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
 
 </body>
 </html>

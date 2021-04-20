@@ -40,7 +40,7 @@ function editUser() {
         userstatus: userStatus
     };
 
-    console.log(values);
+    //console.log(values);
 
     fetch(url, {
         method: "PUT",
@@ -128,3 +128,7 @@ function closePopout(i)
 //         modal.style.display = "none";
 //     }
 // }
+
+function goBack() {
+    history.back();
+}

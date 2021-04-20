@@ -4,5 +4,7 @@ namespace API.Models.Interfaces
     {
        public void DeleteItem(int itemid); 
        public void DeleteUser(int userid);
+       public void DeleteCheckout(int checkoutid);
+       public void DeleteWaitlist(int waitlistid);
     }
 }

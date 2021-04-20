@@ -43,7 +43,7 @@
       top: 30vh;
     }
     
-    button {
+    .regular_button {
       display: block;
       cursor: pointer;
       outline: none;
@@ -56,7 +56,9 @@
       font-weight: 600;
       color: var(--text);
       background-size: 100% 100%;
-      margin-bottom: 15px;
+
+      margin: auto;
+      margin-bottom: 20px;
     }
     
     button:hover,.form button:active,.form button:focus {
@@ -98,5 +100,15 @@
     font-family: serif;
     color: white;
     font-size: 20px;
+}
+
+.back_button {
+  float: right;
+  margin-right: 25px;
+}
+
+.logout_button {
+  float: right;
+  margin-right: 25px;
 }
   

@@ -14,8 +14,8 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            System.DateTime tempcheckouttime = DateTime.Now;
-            System.DateTime tempdue =  DateTime.Now.AddDays(14);
+            System.DateTime tempcheckouttime = DateTime.Now.Date;
+            System.DateTime tempdue =  DateTime.Now.Date.AddDays(14);
             string stm = @"INSERT INTO checkouts(itemid, userid, checkouttime, duedate, isreturned) 
             VALUES(@itemid, @userid, @checkouttime, @duedate, @isreturned)";
             var cmd = new MySqlCommand(stm, con);

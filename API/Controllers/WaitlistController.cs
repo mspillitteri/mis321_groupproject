@@ -43,9 +43,11 @@ namespace API.Controllers
 
         // PUT: api/Waitlist/5
         [EnableCors("Policy")]
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{waitlistid}/{itemid}/{userid}")]
+        public void Put(int waitlistid, int itemid, int userid)
         {
+            IUpdate editWaitlist = new Update();
+            editWaitlist.UpdateWaitlist(waitlistid, itemid, userid);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -53,6 +55,8 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            IDelete deleteWaitlist = new Delete();
+            deleteWaitlist.DeleteWaitlist(id);
         }
     }
 }
