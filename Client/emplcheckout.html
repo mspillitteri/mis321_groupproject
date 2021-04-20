@@ -8,17 +8,26 @@
     <title>CCS Inventory</title>
     <script id="loginscript" type= "text/javascript" src="./scripts/login.js"></script>
     <script id="emplscript" type= "text/javascript" src="./scripts/emplcheckout.js"></script>
+    <script id="emplwaitscript" type= "text/javascript" src="./scripts/emplWaitlist.js"></script>
 </head>
 <body onload="getItems()">
     
     <h2>General Access</h2>
     <h3 id="welcomeuser"></h3>
     <h1><center>CCS Inventory</center></h1>
+
+    <div id = "editModal" class = "modal">
+        <div class = "modal-content">
+            <span class = "close" onclick = "closePopout()">&times;</span>
+            <div id="emplWaitlist">
+            
+            </div>
+        </div>
+    </div>
    
 <div id="items">
   
 </div>
 
-    
 </body>
 </html>

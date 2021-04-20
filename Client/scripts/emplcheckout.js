@@ -17,14 +17,10 @@ function getItems() {
             html += "&ensp;" + item.itemname + "&emsp;" + item.itemstatus;
             if (item.ischeckedout == true) { 
                 //show if item is checked out
-                html += "<button class=\"buttons\" onclick=\"addWaitlist("+item.itemid+",\'"+userid+"')\">Waitlist</button>";
+                html += "<button class=\"buttons\" onclick=\"addWaitlist("+item.itemid+",\'"+userid+"')\">Join Waitlist</button>";
                 html += "&nbsp;";
+                html += "<button class=\"buttons\" onclick=\"getWaitlist("+item.itemid+")\">Show Waitlist</button>";
             }
-            // else if (item.ischeckedout == false) {
-            //     //show for top of waitlist
-            //     html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
-            //     html += "&nbsp;";
-            // }
             else if (item.ischeckedout == false) {
                 //show for everyone
                 html += "<button class=\"buttons\" onclick=\"addCheckout("+item.itemid+",\'"+userid+"')\">Checkout</button>";
