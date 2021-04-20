@@ -25,7 +25,7 @@ namespace API.Controllers
 
         // GET: api/Waitlist/5
         [EnableCors("Policy")]
-        [HttpGet("{id}", Name = "GetWaitlist")]
+        [HttpGet("{id}")]
         public List<Waitlist> GetWaitlist(int id)
         {
             IGetWaitlist getWaitlist = new ReadWaitlistData();

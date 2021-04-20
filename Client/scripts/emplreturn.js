@@ -63,7 +63,7 @@ function addReturn(checkout, itemid) {
     })
     .then((response)=>{
         console.log(response);
-        getReturnItems();
+        onLoad();
     })
 }
 

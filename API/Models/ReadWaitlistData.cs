@@ -12,7 +12,7 @@ namespace API.Models
             var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"SELECT * FROM waitlist WHERE itemid = @itemid";
+            string stm = @"SELECT waitlistid, itemid, waitlist.userid, userfname, userlname FROM waitlist JOIN users ON (waitlist.userid = users.userid) WHERE itemid = @itemid";
             var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@itemid",itemid);
             cmd.Prepare();
@@ -23,7 +23,9 @@ namespace API.Models
                 Waitlist w = new Waitlist(){
                     waitlistid = rdr.GetInt32(0),
                     itemid = rdr.GetInt32(1),
-                    userid = rdr.GetInt32(2)
+                    userid = rdr.GetInt32(2),
+                    userfname = rdr.GetString(3),
+                    userlname = rdr.GetString(4)
                     };
                 waitlist.Add(w);
             }
